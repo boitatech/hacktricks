@@ -7,11 +7,9 @@ description: >-
 
 ![](.gitbook/assets/portada-alcoholica.png)
 
-**Welcome to the page where you will find each hacking trick/technique/whatever I have learnt in CTFs, real life apps, and reading researches and news.**
+**Bem-vindo à página onde você encontrará truques e técnicas de tudo do que aprendi em CTFs e aplicativos da vida real incluindo pesquisas e notícias.**
 
 Here you can find a little **introduction:**
-
-## [**Pentesting Methodology**](pentesting-methodology.md)
 
 ## [**Pentesting Methodology**](pentesting-methodology.md)
 
