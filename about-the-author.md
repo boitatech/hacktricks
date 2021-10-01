@@ -1,31 +1,34 @@
-# About the author
+# Sobre o autor
 
-### Hello!!
+### Olá!!
 
-This is **Carlos Polop**.
+Este é **Carlos Polop**.
 
-First of all, I want to indicate that **I don't own this entire book**, a lot of **information was copy/pasted from other websites and that content belongs to them** \(this is indicated on the pages\).
+Em primeiro lugar, gostaria de indicar que **não possuo este livro inteiro**, muitas **informações foram copiadas/coladas de outros sites e que o conteúdo pertence a eles** (isso está indicado nas páginas).
 
-I also wants to say **thanks to all the people that share cyber-security related information for free** on the Internet. Thanks to them I learn new hacking techniques that then I add to Hacktricks.
+Também quero agradecer **a todas as pessoas que compartilham informações relacionadas à segurança cibernética gratuitamente** na Internet. Graças a eles, aprendo novas técnicas de hacking que posteriormente adiciono ao Hacktricks.
 
 ### BIO
 
-If for some weird reason you are interested in knowing about my bio here you have a summary:
+Se por algum motivo estranho você estiver interessado em saber sobre minha biografia aqui, você tem um resumo:
 
-* I've worked in different companies as sysadmin, developer and **pentester**.
-* I'm a **Telecommunications Engineer** with a **Masters** in **Cybersecurity**
-* Relevant certifications: **OSCP, OSWE**, **CRTP, eMAPT, eWPTXv2** and Professional Drone pilot.
-* I speak **Spanish** and **English** and little of French \(some day I will improve that\).
-* I'm a **CTF player**
-* I'm very proud of this **book** and my **PEASS** \(I'm talking about these peass: [https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)\)
-* And I really enjoy researching, playing CTFs, pentesting and everything related to **hacking**.
+* Já trabalhei em diferentes empresas como administrador de sistemas, desenvolvedor e **pentester**.
+* Sou um **Engenheiro de Telecomunicações** com **Mestre** em **Cibersegurança**
+* Certificações relevantes: **OSCP, OSWE**, **CRTP, eMAPT, eWPTXv2** e piloto de drone profissional.
+* Falo **espanhol** e **inglês** e um pouco de francês (um dia irei melhorar).
+* Sou um **jogador CTF**
+* Estou muito orgulhoso deste **livro** e do meu **PEASS** (estou falando sobre essas coisas: [https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
+* E eu realmente gosto de pesquisar, jogar CTFs, pentesting e tudo relacionado a **hackear**.
 
-### Support HackTricks
+### Suporte HackTricks
 
-Thank you for be **reading this**!
+Obrigado por **estar lendo isto**!
 
-Do you use **Hacktricks every day**? Did you find the book **very** **useful**? Would you like to **receive extra help** with cybersecurity questions? Would you like to **find more and higher quality content on Hacktricks**? [**Support Hacktricks through github sponsors**](https://github.com/sponsors/carlospolop) **so we can dedicate more time to it and also get access to the Hacktricks private group where you will get the help you need and much more!**
+Você usa **Hacktricks todos os dias**? Você achou o livro **muito** útil **? Você gostaria de** receber ajuda extra **com perguntas sobre segurança cibernética? Você gostaria de** encontrar mais conteúdo de alta qualidade no Hacktricks? [Apoie Hacktricks por meio de patrocinadores do github](https://github.com/sponsors/carlospolop) **para que possamos dedicar mais tempo a ele e também ter acesso ao grupo privado do Hacktricks, onde você obterá informações precisas e muito mais!**
 
-If you want to know about my **latest modifications**/**additions** or you have **any suggestion for HackTricks** or **PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/)[**telegram group**](https://t.me/peass), or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
+Se você quiser saber sobre minhas **últimas mudanças/adições** ou se você tiver **alguma sugestão para HackTricks** ou **PEASS**, **inscreva-se em** 💬 [grupo telegram](https://t.me/peass) ou **siga-me** no **Twitter** 🐦 [@carlospolopm](https://twitter.com/carlospolopm).
+
 If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
+
+Se você quiser **compartilhar alguns truques com a comunidade**, você também pode enviar **solicitações de pull** para [https: //github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks) que será refletido neste livro e não se esqueça de **dar ⭐** no **github** para me **motivar** a continuar desenvolvendo este livro.
 
