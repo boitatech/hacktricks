@@ -26,10 +26,9 @@ Você usa **Hacktricks todos os dias**? Você achou o livro **muito** útil ? **
 [**Apoie o Hacktricks por meio de patrocinadores do github**](https://github.com/sponsors/carlospolop) para que possamos dedicar mais tempo a ele e também obter acesso ao grupo privado do hacktricks, onde você obterá a ajuda precisa e muito mais!
 {% endhint %}
 
+Se você quiser saber sobre minhas **últimas mudanças**/**adições** ou se você tiver **alguma sugestão para HackTricks** ou **PEASS**, **inscreva-se em** 💬[grupo telegram](https://t.me/peass) ou **siga-me** no **Twitter** 🐦[@carlospolopm](https://twitter.com/carlospolopm).
 
-
-If you want to know about my **latest modifications**/**additions** or you have **any suggestion for HackTricks** or **PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/)[**telegram group**](https://t.me/peass), or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
-If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
+Se você quiser **compartilhar alguns truques com a comunidade**, você também pode enviar **solicitações de pull** para [https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks) que será refletido neste livro e não se esqueça de **dar ⭐** no **github** para me **motivar** e continuar desenvolvendo este livro.
 
 ## Corporate Sponsors
 
