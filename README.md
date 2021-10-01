@@ -26,29 +26,27 @@ Você usa **Hacktricks todos os dias**? Você achou o livro **muito** útil ? **
 [**Apoie o Hacktricks por meio de patrocinadores do github**](https://github.com/sponsors/carlospolop) para que possamos dedicar mais tempo a ele e também obter acesso ao grupo privado do hacktricks, onde você obterá a ajuda precisa e muito mais!
 {% endhint %}
 
-Se você quiser saber sobre minhas **últimas mudanças**/**adições** ou se você tiver **alguma sugestão para HackTricks** ou **PEASS**, **inscreva-se em** 💬[grupo telegram](https://t.me/peass) ou **siga-me** no **Twitter** 🐦[@carlospolopm](https://twitter.com/carlospolopm).
+Se você quiser saber sobre minhas **últimas mudanças**/**adições** ou se você tiver **alguma sugestão para HackTricks** ou **PEASS**, **inscreva-se em** 💬 [grupo telegram](https://t.me/peass) ou **siga-me** no **Twitter** 🐦[@carlospolopm](https://twitter.com/carlospolopm).
 
 Se você quiser **compartilhar alguns truques com a comunidade**, você também pode enviar **solicitações de pull** para [https://github.com/carlospolop/hacktricks](https://github.com/carlospolop/hacktricks) que será refletido neste livro e não se esqueça de **dar ⭐** no **github** para me **motivar** e continuar desenvolvendo este livro.
 
-## Corporate Sponsors
+## Patrocinadores Corporativos
 
-### \*\*\*\*[**INE**](https://ine.com/)\*\*\*\*
+### **[INE](https://ine.com/)**
 
 ![](.gitbook/assets/ine_logo-3-.jpg)
 
-[**Buy me a coffee here**](https://www.buymeacoffee.com/carlospolop)
+[**Compre-me um café aqui**](https://www.buymeacoffee.com/carlospolop)
 
-\*\*\*\*[**INE**](https://ine.com/) is a great platform to start learning or **improve** your **IT knowledge** through their huge range of **courses**. I personally like and have completed many from the [**cybersecurity section**](https://ine.com/pages/cybersecurity). **INE** also provides with the official courses to prepare the **certifications** from [**eLearnSecurity**](https://elearnsecurity.com/)**.**
+[INE](https://ine.com/) é uma ótima plataforma para começar a aprender ou **melhorar** seu **conhecimento de TI** por meio de sua ampla variedade de **cursos**. Eu, pessoalmente, gosto e concluí muitas das **[seções de segurança cibernética](https://ine.com/pages/cybersecurity)**.**INE** também fornece os cursos oficiais para preparar **certificações** de **[eLearnSecurity](https://elearnsecurity.com/)**.
 
-Copyright © Carlos Polop 2020. Except where otherwise specified, the text on [HACK TRICKS](https://github.com/carlospolop/hacktricks) by Carlos Polop is licensed under the [**Commons Clause**](https://commonsclause.com/) \(which allow you to use this content freely WITHOUT commercial use\).
+Copyright © Carlos Polop 2020. Exceto onde indicado de outra forma, o texto em [HACK TRICKS](https://github.com/carlospolop/hacktricks) por Carlos Polop está licenciado sob a [Cláusula Commons](https://commonsclause.com/) \ (que permite que você use este conteúdo livremente SEM uso comercial).
 
-#### **Courses and Certifications reviews**
+#### **Avaliações e certificações do curso**
 
-You can find **my reviews of the certifications eMAPT and eWPTXv2** \(and their **respective preparation courses**\) in the following page:
+Você pode encontrar **minhas análises das certificações eMAPT e eWPTXv2** \ (e seus **respectivos cursos de preparação**) na página a seguir:
 
 {% page-ref page="courses-and-certifications-reviews/ine-courses-and-elearnsecurity-certifications-reviews.md" %}
 
-\*\*\*\*
-
-**Copyright © Carlos Polop 2021. Except where otherwise specified, the rights of the text on** [**HACKTRICKS**](https://github.com/carlospolop/hacktricks) **by Carlos Polop are reserved.**
+**Copyright © Carlos Polop 2021. Exceto onde indicado de outra forma, os direitos de texto em [HACKTRICKS](https://github.com/carlospolop/hacktricks) por Carlos Polop são reservados.**
 
