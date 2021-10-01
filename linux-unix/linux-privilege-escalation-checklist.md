@@ -12,18 +12,18 @@ Do you use **Hacktricks every day**? Did you find the book **very** **useful**? 
 If you want to know about my **latest modifications**/**additions** or you have **any suggestion for HackTricks** or **PEASS**, **join the** [**💬**](https://emojipedia.org/speech-balloon/)[**telegram group**](https://t.me/peass), or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/carlospolopm)**.**  
 If you want to **share some tricks with the community** you can also submit **pull requests** to [**https://github.com/carlospolop/hacktricks**](https://github.com/carlospolop/hacktricks) that will be reflected in this book and don't forget to **give ⭐** on **github** to **motivate** **me** to continue developing this book.
 
-### **Best tool to look for Linux local privilege escalation vectors:** [**LinPEAS**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)\*\*\*\*
+### **Melhor ferramenta para encontrar vetores de escalação de privilégio em Linux:** [**LinPEAS**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)\*\*\*\*
 
-### [System Information](privilege-escalation/#system-information)
+### [Informação do Sistema](privilege-escalation/#system-information)
 
 * [ ] Get **OS information**
-* [ ] Check the [**PATH**](privilege-escalation/#path), any **writable folder**?
-* [ ] Check [**env variables**](privilege-escalation/#env-info), any sensitive detail?
-* [ ] Search for [**kernel exploits**](privilege-escalation/#kernel-exploits) **using scripts** \(DirtyCow?\)
-* [ ] **Check** if the [**sudo version** is vulnerable](privilege-escalation/#sudo-version)
+* [ ] Checar o [**PATH**](privilege-escalation/#path), algum **diretório gravável**?
+* [ ] Checar [**variáveis de ambiente**](privilege-escalation/#env-info), alguma informação sensível?
+* [ ] Procure por [**exploits de kernel**](privilege-escalation/#kernel-exploits) **usando scripts** \(DirtyCow?\)
+* [ ] **Cheque** se a [**versão do sudo** é vulneravel](privilege-escalation/#sudo-version)
 * [ ] \*\*\*\*[**Dmesg** signature verification failed](privilege-escalation/#dmesg-signature-verification-failed) error?
-* [ ] More system enum \([date, system stats, cpu info, printers](privilege-escalation/#more-system-enumeration)\)
-* [ ] [Enumerate more defenses](privilege-escalation/#enumerate-possible-defenses)
+* [ ] Enumerar mais o sistema \([date, system stats, cpu info, printers](privilege-escalation/#more-system-enumeration)\)
+* [ ] [Enumerar as possiveis defesas](privilege-escalation/#enumerate-possible-defenses)
 
 ### [Drives](privilege-escalation/#drives)
 
@@ -107,13 +107,13 @@ If you want to **share some tricks with the community** you can also submit **pu
 
 ### [Capabilities](privilege-escalation/#capabilities)
 
-* [ ] Has any binary any **unexpected capability**?
+* [ ] Tem algum binário com alguma **capability não esperada**?
 
 ### [ACLs](privilege-escalation/#acls)
 
 * [ ] Has any file any **unexpected ACL**?
 
-### [Open Shell sessions](privilege-escalation/#open-shell-sessions)
+### [Sessões de shell abertas](privilege-escalation/#open-shell-sessions)
 
 * [ ] **screen**?
 * [ ] **tmux**?
