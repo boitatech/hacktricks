@@ -48,5 +48,5 @@ Você pode encontrar **minhas análises das certificações eMAPT e eWPTXv2** \ 
 
 {% page-ref page="courses-and-certifications-reviews/ine-courses-and-elearnsecurity-certifications-reviews.md" %}
 
-**Copyright © Carlos Polop 2021. Exceto onde indicado de outra forma, os direitos de texto em [HACKTRICKS](https://github.com/carlospolop/hacktricks) por Carlos Polop são reservados.**
+**Copyright © Boitatech 2021. Exceto onde indicado de outra forma, os direitos de texto em [HACKTRICKS](https://github.com/carlospolop/hacktricks) por Carlos Polop são reservados.**
 
