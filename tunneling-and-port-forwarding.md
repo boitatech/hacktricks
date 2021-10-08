@@ -2,7 +2,7 @@
 
 ## **SSH**
 
-Conexão gráfica SSH (X)
+Conexão gráfica SSH \(X\)
 
 ```bash
 ssh -Y -C <user>@<ip> # -Y é menos seguro, mas mais rápido que -X
@@ -22,7 +22,7 @@ ssh -R 0.0.0.0:10521:10.0.0.1:1521 user@10.0.0.1 #Porta remota 1521 acessível n
 
 ### Port2Port
 
-Porta Local -> Host comprometido (SSH) -> Terceira_maquina:Porta
+Porta Local -> Host comprometido \(SSH\) -> Terceira_maquina:Porta
 
 ```bash
 ssh -i ssh_key <usuario>@<ip_comprometido> -L <porta_do_atacante>:<ip_da_vitima>:<porta_remota> [-p <porta_ssh>] [-N -f]  #Dessa forma, o terminal ainda está em seu host
@@ -31,9 +31,9 @@ ssh -i ssh_key <usuario>@<ip_comprometido> -L <porta_do_atacante>:<ip_da_vitima>
 sudo ssh -L 631:<ip_da_vitima>:631 -N -f -l <usuário> <ip_comprometido>
 ```
 
-### Port2hostnet (proxychains)
+### Port2hostnet \(proxychains\)
 
-Porta Local -> Host comprometido (SSH) -> Qualquer lugar
+Porta Local -> Host comprometido \(SSH\) -> Qualquer lugar
 
 ```bash
 ssh -f -N -D <porta_do_atacante> <usuario>@<ip_comprometido> #Tudo enviado para a porta local irá ser redirecionado para o servidor comprometido (uso como proxy)
