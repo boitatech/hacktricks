@@ -2,16 +2,16 @@
 
 ### Cabeçalho Host
 
-Várias vezes o back-end confia no **cabeçalho Host** para realizar algumas ações. Por exemplo, ele pode usar seu próprio valor como o **domínio para enviar uma redefinição de senha**. Então quando você recebe um email com um link para redefinir sua senha, o domínio usado é aquele que você coloca no cabeçalho Host. Então, você pode solicitar a redefinição de senha de outros usuário e alterar o domínio para um controlado por você para roubar os códigos de redefinição deles. [WriteUp](https://medium.com/nassec-cybersecurity-writeups/how-i-was-able-to-take-over-any-users-account-with-host-header-injection-546fff6d0f2).
+Várias vezes o back-end confia no **cabeçalho Host** para realizar algumas ações. Por exemplo, ele pode usar seu próprio valor como o **domínio para enviar uma redefinição de senha**. Então quando você recebe um email com um link para redefinir sua senha, o domínio usado é aquele que você coloca no cabeçalho Host. Então, você pode solicitar a redefinição de senha de outros usuários e alterar o domínio para um controlado por você para roubar os códigos de redefinição deles. [WriteUp](https://medium.com/nassec-cybersecurity-writeups/how-i-was-able-to-take-over-any-users-account-with-host-header-injection-546fff6d0f2).
 
 ### Booleanos de sessão
 
 Algumas vezes quando você completa alguma verificação corretamente o back-end irá **adicionar um booleano com o valor "Verdadeiro" para um atributo de segurança da sua sessão**. Então, um endpoint diferente saberá se você passou com sucesso aquela verificação.
 Entretanto, se você **passar a verificação** e as suas sessões forem concedidas aquele valor "Verdadeiro" no atributo de segurança, você pode tentar **acessar outros recursos** que **dependem do mesmo atributo** mas que você **não deveria ter permissões** para acessar. [WriteUp](https://medium.com/@ozguralp/a-less-known-attack-vector-second-order-idor-attacks-14468009781a).
 
-### Funcionalidade de registro
+### Funcionalidade de cadastro
 
-Tente registrar um usuário existente. Tente também usando caracteres equivalentes \(pontos, vários espaçoes e Unicode\).
+Tente cadastrar um usuário existente. Tente também usando caracteres equivalentes \(pontos, vários espaçoes e Unicode\).
 
 ### Assumir o controlde de emails
 

