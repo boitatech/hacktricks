@@ -1,29 +1,27 @@
-# Other Web Tricks
+# Outras Tecnicas para Web
+
+### Cabeçalho Header (Host Header)
 
 ### Host header
+É extremamente comum que o back-end confie no cabeçalho Header para realizar algumas ações. Por exemplo, pode usar o valor do mesmo como **domínio para enviar um reset de senha**. Então quando você recebe um email com para alterar sua senha, o domínio que está sendo usado é o que você coloca no cabeçalho Header. Então, você pode requisitar o reset de senha de outros usuários e controlar o domínio que irá receber este reset e assim roubar o código de reset de suas senhas. [WriteUp](https://medium.com/nassec-cybersecurity-writeups/how-i-was-able-to-take-over-any-users-account-with-host-header-injection-546fff6d0f2). 
 
-Several times the back-end trust the H**ost header** to perform some actions. For example, it could use its value as the **domain to send a password reset**. So when you receive an email with a link to reset your password, the domain being used is the one you put in the Host header.Then, you can request the password reset of other users and change the domain to one controlled by you to steal their password reset codes. [WriteUp](https://medium.com/nassec-cybersecurity-writeups/how-i-was-able-to-take-over-any-users-account-with-host-header-injection-546fff6d0f2). 
+### Sessão de booleanos
+As vezes quando você completa alguma verificação corretamente o back-end ira apenas **adicionar um booleano com o valor "True" a um atributo de segurança a sua sessão"**. Então, um diferente serviço ira saber se você passou no teste de verificação.
 
-### Session booleans
+Entretanto, se você **passar o teste** e sua sessão recebe esse valor "True" no atributo de segurança, você pode tentar **acessar outros recursos** que **dependem do mesmo atributo** mas que você **não deveria ter permissão** de acessar. [WriteUp](https://medium.com/@ozguralp/a-less-known-attack-vector-second-order-idor-attacks-14468009781a).
 
-Some times when you complete some verification correctly the back-end will **just add a boolean with the value "True" to a security attribute your session**. Then, a different endpoint will know if you successfully passed that check.  
-However, if you **pass the check** and your sessions is granted that "True" value in the security attribute, you can try to **access other resources** that **depends on the same attribute** but that you **shouldn't have permissions** to access. [WriteUp](https://medium.com/@ozguralp/a-less-known-attack-vector-second-order-idor-attacks-14468009781a).
+### Função de Registro
+Tente registrar algum usuário já existente. Tente também usar caracteres equivalentes como \(pontos, diversos espaços e Unicode\).
 
-### Register functionality
+### Assumir controle de emails
+Registre um email, antes de confirmá-lo troque o email, então, se o email de confirmação for enviado para o primeiro email registrado, você pode assumir controle de qualquer email. Ou se você poder trocar o segundo email confirmando primeiro, você também pode assumir controle de qualquer conta.
 
-Try to register as an already existent user. Try also using equivalent characters \(dots, lots of spaces and Unicode\).
+### Acessar serviços internos de ServiceDesk usando o Atlassian
 
-### Takeover emails
+"https://yourcompanyname.atlassian.net/servicedesk/customer/user/login"
 
-Register an email, before confirming it change the email, then, if the new confirmation email is sent to the first registered email,you can takeover any email. Or if you can enable the second email confirming the firt one, you can also takeover any account.
-
-### Access Internal servicedesk of companies using atlassian
-
-{% embed url="https://yourcompanyname.atlassian.net/servicedesk/customer/user/login" %}
-
-### TRACE method
-
-Developers might forget to disable various debugging options in the production environment. For example, the HTTP `TRACE` method is designed for diagnostic purposes. If enabled, the web server will respond to requests that use the `TRACE` method by echoing in the response the exact request that was received. This behaviour is often harmless, but occasionally leads to information disclosure, such as the name of internal authentication headers that may be appended to requests by reverse proxies.![Image for post](https://miro.medium.com/max/60/1*wDFRADTOd9Tj63xucenvAA.png?q=20)
-
+### Método TRACE
+Os desenvolvedores podem acabar esquecendo de desativar diversas opções de debug em ambientes de produção. Por exemplo, o método `TRACE` é utilizado para diagnósticos. Se habiltiado, o servidor web irá responder as requisições que usam o método `TRACE` ecoando na resposta a mesma requisição que foi recebida.
+Este tipo de comportamento é geralmente inofensivo para a aplicação, mas pode ocasionalmente conduzir a um vazamento de informações, como nome de cabeçalhos internos de autenticação que podem ser adicionado as requisições através de proxys reversos.
 ![Image for post](https://miro.medium.com/max/1330/1*wDFRADTOd9Tj63xucenvAA.png)
 
