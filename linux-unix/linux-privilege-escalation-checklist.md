@@ -1,8 +1,8 @@
 ---
-description: Checklist for privilege escalation in Linux
+descrição: Checklist para escalar privilégio no Linux
 ---
 
-# Checklist - Linux Privilege Escalation
+# Checklist - Escalação de privilégio Linux
 
 {% hint style="danger" %}
 Do you use **Hacktricks every day**? Did you find the book **very** **useful**? Would you like to **receive extra help** with cybersecurity questions? Would you like to **find more and higher quality content on Hacktricks**?  
@@ -16,7 +16,7 @@ If you want to **share some tricks with the community** you can also submit **pu
 
 ### [Informação do Sistema](privilege-escalation/#system-information)
 
-* [ ] Get **OS information**
+* [ ] Pegar **informações do sistema**
 * [ ] Checar o [**PATH**](privilege-escalation/#path), algum **diretório gravável**?
 * [ ] Checar [**variáveis de ambiente**](privilege-escalation/#env-info), alguma informação sensível?
 * [ ] Procure por [**exploits de kernel**](privilege-escalation/#kernel-exploits) **usando scripts** \(DirtyCow?\)
@@ -25,27 +25,27 @@ If you want to **share some tricks with the community** you can also submit **pu
 * [ ] Enumerar mais o sistema \([date, system stats, cpu info, printers](privilege-escalation/#more-system-enumeration)\)
 * [ ] [Enumerar as possiveis defesas](privilege-escalation/#enumerate-possible-defenses)
 
-### [Drives](privilege-escalation/#drives)
+### [Dispositivos](privilege-escalation/#drives)
 
-* [ ] **List mounted** drives
-* [ ] **Any unmounted drive?**
-* [ ] **Any creds in fstab?**
+* [ ] **Listar dispositovos montados**
+* [ ] **Algum dispositivo não montado?**
+* [ ] **Alguma credencial no fstab?**
 
-### \*\*\*\*[**Installed Software**](privilege-escalation/#installed-software)\*\*\*\*
+### \*\*\*\*[**Programas instalados**](privilege-escalation/#installed-software)\*\*\*\*
 
-1. [ ] **Check for**[ **useful software**](privilege-escalation/#useful-software) **installed**
-2. [ ] **Check for** [**vulnerable software**](privilege-escalation/#vulnerable-software-installed) **installed**
+1. [ ] **Checar por**[ **programas uteis**](privilege-escalation/#useful-software) **instalados**
+2. [ ] **Checar por** [**programas vulneraveis**](privilege-escalation/#vulnerable-software-installed) **instalados**
 
-### \*\*\*\*[Processes](privilege-escalation/#processes)
+### \*\*\*\*[Processos](privilege-escalation/#processes)
 
-* [ ] Is  any **unknown software running**?
-* [ ] Is any software with **more privileges that it should have running**?
-* [ ] Search for **exploits for running processes** \(specially if running of versions\)
-* [ ] Can you **modify the binary** of any running process?
-* [ ] **Monitor processes** and check if any interesting process is running frequently
-* [ ] Can you **read** some interesting **process memory** \(where passwords could be saved\)?
+* [ ] Tem algum **programa desconhecido rodando**?
+* [ ] Tem algum programa rodando com **maior privilégio do que deveria**?
+* [ ] Procure por **exploits para os processos rodando** \(especialmente as versões\)
+* [ ] Você pode **modificar o binário** de algum processo rodando?
+* [ ] **Monitorar processos** e checar se tem algum processo interessante rodando frequentemente
+* [ ] Você pode **ler** algo interessante na **memória do processo** \(Onde senhas podem ser salvas\)?
 
-### [Scheduled/Cron jobs?](privilege-escalation/#scheduled-jobs)
+### [Agendamento/Cron jobs?](privilege-escalation/#scheduled-jobs)
 
 * [ ] Is the [**PATH** ](privilege-escalation/#cron-path)being modified by some cron and you can **write** in it?
 * [ ] Any [**wildcard** ](privilege-escalation/#cron-using-a-script-with-a-wildcard-wildcard-injection)in a cron job?
@@ -54,7 +54,7 @@ If you want to **share some tricks with the community** you can also submit **pu
 
 ### [Services](privilege-escalation/#services)
 
-* [ ] Any **writable .service** file?
+* [ ] Algum arquivo **.service** com permissão de esrita?
 * [ ] Any **writable binary** executed by a **service**?
 * [ ] Any **writable folder in systemd PATH**?
 
